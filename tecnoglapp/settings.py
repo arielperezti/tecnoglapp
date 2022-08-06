@@ -138,6 +138,8 @@ STATICFILES_DIRS = (os.path.join(BASE_DIR,'tecnoglapp/static'), )
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-LOGIN_REDIRECT_URL =  '' #si esta logeado, llevalo al listado de empleados.
+LOGIN_REDIRECT_URL =  '/home' #si esta logeado, llevalo al listado de empleados.
 
 LOGOUT_REDIRECT_URL ='/account/login' #sino, permanece en pantalla de login
+
+
