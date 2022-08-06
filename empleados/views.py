@@ -7,9 +7,12 @@ from django.contrib.auth.decorators import login_required #Para hacer obligatori
 
 # Create your views here.
 
+def index(request):
+    return render(request,'base.html')
+
 @login_required(login_url='/account/login/') #Para cargar la vista, se requiere validacion
 
-def index(request):
+def home(request):
     empleados= Empleado.objects.all()
     data={'empleados':empleados}
     return render(request,'empleados/index.html',data)

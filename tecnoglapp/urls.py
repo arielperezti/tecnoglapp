@@ -16,13 +16,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.conf.urls import include
-from empleados.views import index, nuevoEmpleado, modificarEmpleado, eliminarEmpleado
+from empleados.views import index, nuevoEmpleado, modificarEmpleado, eliminarEmpleado, home
 
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('home/', index),
+    path('', index),
+    path('home/', home),
     path('nuevoEmpleado/', nuevoEmpleado),
     path('modificarEmpleado/<id>',modificarEmpleado), #editar empleado segun id
     path('eliminarEmpleado/<id>',eliminarEmpleado), #eliminar empleado segun id
