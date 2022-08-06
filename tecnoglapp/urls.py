@@ -19,7 +19,6 @@ from django.conf.urls import include
 from empleados.views import index, nuevoEmpleado, modificarEmpleado, eliminarEmpleado, home
 
 
-
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index),
@@ -28,6 +27,5 @@ urlpatterns = [
     path('modificarEmpleado/<id>',modificarEmpleado), #editar empleado segun id
     path('eliminarEmpleado/<id>',eliminarEmpleado), #eliminar empleado segun id
     path('account/', include('django.contrib.auth.urls')),
-    
-    
-]
+
+] 
