@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% block contenido %}
+
+
+<br>
+<h3>Módulo de Listado de Empleados</h3>
+
+<a href="/nuevoEmpleado">
+    <!--/nuevoempleado-->
+    <button type="button" class="btn btn-primary">
+        <i class="fa fa-plus" aria-hidden="true"></i> Nuevo Empleado
+    </button>
+</a>
+{% if msg %}
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong>Ok!</strong> {{msg}}.
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{% endif %}
+
+
+<br><br>
+
+<table class="table table-striped table-bordered" id="empleados">
+
+    <thead>
+        <th>ID </th>
+        <th>Nombre Completo</th>
+        <th>Cedula</th>
+        <th>Fecha de Nacimiento</th>
+        <th>Email</th>
+        <th>Telefono</th>
+        <th>Acciones</th>
+    </thead>
+
+    <tbody>
+        {% for reg in empleados %}
+        <tr>
+            <td>{{reg.id}}</td>
+            <td>{{reg.nombre}} {{reg.apellido}}</td>
+            <td>{{reg.cedula}}</td>
+            <td>{{reg.fechaNac}}</td>
+            <td>{{reg.email}}</td>
+            <td>{{reg.telefono}}</td>
+            <td>
+
+                <span>
+
+                    <a href="/modificarEmpleado/{{reg.id}}" title="Editar">
+                        <button type="button" class="btn btn-info">
+                            <i class="fa fa-pencil-square-o" aria-hidden="true" style="font-size:24px"></i>
+                        </button>
+                    </a> |
+                    <a href="/eliminarEmpleado/{{reg.id}}" title="Eliminar" onclick="return confirm('¿Estas seguro de Eliminar al empleado {{reg.nombre}} {{reg.apellido}}?')">
+                        <button type="button" class="btn btn-danger">
+                            <i class="fa fa-trash-o" aria-hidden="true" style="font-size:24px"></i>
+                        </button>
+                    </a>
+                </span>
+
+            </td>
+        </tr>
+
+        {% endfor %}
+
+    </tbody>
+
+
+</table>
+
+
+
+
+{% endblock %}

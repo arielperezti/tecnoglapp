@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block contenido %}
+<br>
+<h3>Modulo de Modificación de Empleados</h3>
+{% if msg %}
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong>Ok!</strong> {{msg}}.
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{% endif %}
+{% if empleados %}
+<form action="" method="post">
+    {% csrf_token %}
+    <div class="mb-3">
+        <label for="recipient-name" class="col-form-label">Nombre:</label>
+        <input type="text" class="form-control" name="nombre" id="nombre" value="{{empleados.nombre}}" required>
+        <input type="hidden" name="idempleado" value="{{empleados.id}}">
+    </div>
+
+    <div class="mb-3">
+        <label for="recipient-name" class="col-form-label">Apellido:</label>
+        <input type="text" class="form-control" name="apellido" id="apellido" value="{{empleados.apellido}}" required>
+    </div>
+
+    <div class="mb-3">
+        <label for="recipient-name" class="col-form-label">Cedula:</label>
+        <input type="number" class="form-control" name="cedula" id="cedula" value="{{empleados.cedula}}" required>
+    </div>
+
+    <div class="mb-3">
+        <label for="recipient-name" class="col-form-label">Fecha de Nacimiento: </label>
+        <input type="date" class="form-control" name="fechanac" id="fechanac" value="{{empleados.fechanac}}" required>
+    </div>
+
+    <div class="mb-3">
+        <label for="recipient-name" class="col-form-label">Email: </label>
+        <input type="email" class="form-control" name="email" id="email" value="{{empleados.email}}" required>
+    </div>
+
+    <div class="mb-3">
+        <label for="recipient-name" class="col-form-label">Telefono: </label>
+        <input type="text" class="form-control" name="telefono" id="telefono" value="{{empleados.telefono}}" required>
+    </div>
+
+
+    <button type="submit" class="btn btn-primary">Guardar</button>
+
+    <a href="/">
+        <button type="button" class="btn btn-secondary">Atras</button>
+    </a>
+
+
+
+</form>
+{% endif %}
+{% endblock %}

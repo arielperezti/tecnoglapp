@@ -1,0 +1,27 @@
+
+
+/* Formats the input fields*/ 
+#empleados_filter input,
+#empleados_length select{
+    border: 1px solid rgb(3, 154, 204);
+}
+
+
+.paginate_button { 
+    
+    background-color: white;
+    color: black;
+    border: 2px solid #e7e7e7;
+        padding: 10px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 12px;
+        cursor: pointer;
+        float: left;
+    }
+    
+    .paginate_button:hover {background-color: #e7e7e7;}
+
+
+    
